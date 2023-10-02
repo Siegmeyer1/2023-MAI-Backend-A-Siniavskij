@@ -10,3 +10,5 @@
 Локальный конфиг Nginx: `/usr/local/etc/nginx/nginx.conf`
 
 Копия содержимого конфига Nginx: `nginx.conf`
+
+Запуск локального сервера Postgresql: `pg_ctl -D /usr/local/var/postgresql@15 start`
