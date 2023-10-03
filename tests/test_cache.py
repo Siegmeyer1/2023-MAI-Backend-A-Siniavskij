@@ -53,3 +53,14 @@ def test_lru__capacity_with_rem():
 
     assert cache.get('b') == ''
     assert cache.get('c') == ''
+
+
+def test_lru__max_capacity():
+    cache = LRUCache(capacity=2)
+
+    cache.set('a', 'a1')
+    cache.set('b', 'b1')
+    cache.set('b', 'b2')
+
+    assert cache.get('a') == 'a1'
+    assert cache.get('b') == 'b2'

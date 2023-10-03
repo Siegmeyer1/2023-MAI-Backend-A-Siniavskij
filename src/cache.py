@@ -7,7 +7,7 @@ class LRUCache:
         return self._storage.get(key) or ''
 
     def set(self, key: str, value: str) -> None:
-        if len(self._storage) >= self.capacity:
+        if len(self._storage) >= self.capacity and key not in self._storage:
             oldest_key = next(iter(self._storage))
             del self._storage[oldest_key]
         
