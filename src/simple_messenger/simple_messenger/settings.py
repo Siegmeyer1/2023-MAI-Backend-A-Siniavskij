@@ -1,3 +1,5 @@
+import os
+
 """
 Django settings for simple_messenger project.
 
@@ -26,7 +28,7 @@ SECRET_KEY = 'django-insecure-0at-it8$!x-ay9+dh0$b3x%yx-!x#qlvoeswe7s%-ca8rw(rn!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['backend']
+ALLOWED_HOSTS = ['backend', 'localhost']
 
 
 # Application definition
@@ -78,11 +80,11 @@ WSGI_APPLICATION = 'simple_messenger.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'simple-messenger',
-        'USER': secrets.postgres_login,
-        'PASSWORD': secrets.postgres_password,
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': os.environ.get('POSTGRES_DB'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('POSTGRES_HOST'),
+        'PORT': os.environ.get('POSTGRES_PORT'),
     }
 }
 
